@@ -13,8 +13,8 @@ class MilterTransfer < Milter::ClientSession
   end
 
   def header(name, value)
-    if name =~ /\ASubject/i
       @need_transfer = true if value =~ /EMERGENCY/
+    if name =~ /\ASubject\z/i
     end
   end
 
